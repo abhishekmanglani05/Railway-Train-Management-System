@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Train Admin Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+:root {
+	--blue: #0D6EFD;
+	--blue-dark: #0b5ed7;
+	--bg: #f8fbff;
+	--text: #0a2540;
+	--white: #ffffff;
+	--border: #e6eef8;
+	--danger: #dc3545;
+	--success: #198754;
+	--muted: #5b6b8a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+		sans-serif;
+	background: var(--bg);
+	color: var(--text);
+}
+
+nav {
+	background: var(--blue);
+	color: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 18px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 6px 18px rgba(13, 110, 253, 0.12);
+}
+
+.brand {
+	font-weight: 700;
+}
+
+.menu {
+	display: flex;
+	gap: 12px;
+}
+
+.menu a {
+	color: var(--white);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 8px 10px;
+	border-radius: 8px;
+}
+
+.menu a.active, .menu a:hover {
+	background: rgba(255, 255, 255, 0.18);
+}
+
+main {
+	padding: 18px;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.section {
+	background: var(--white);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 18px;
+	margin-bottom: 18px;
+	box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+h2 {
+	margin: 0 0 6px;
+}
+
+h3 {
+	margin: 0 0 10px;
+	color: var(--muted);
+}
+
+.grid {
+	display: grid;
+	gap: 12px;
+}
+
+@media ( min-width : 800px) {
+	.grid.cols-2 {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+th, td {
+	border-bottom: 1px solid var(--border);
+	padding: 10px;
+	text-align: left;
+}
+
+th {
+	background: #f1f6ff;
+	color: #23395d;
+}
+
+.badge {
+	display: inline-block;
+	padding: 4px 8px;
+	border-radius: 6px;
+	background: #eef3ff;
+	color: #23395d;
+	font-weight: 600;
+	font-size: 0.85rem;
+}
+
+.btn {
+	background: var(--blue);
+	color: var(--white);
+	border: none;
+	border-radius: 8px;
+	padding: 10px 12px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: var(--blue-dark);
+}
+
+.btn-danger {
+	background: var(--danger);
+}
+
+.btn-danger:hover {
+	filter: brightness(0.95);
+}
+
+.field {
+	margin-bottom: 12px;
+}
+
+label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="password"],
+	select {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	font-size: 0.95rem;
+	outline: none;
+	background: var(--white);
+}
+
+input:focus, select:focus {
+	border-color: var(--blue);
+	box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.helper {
+	color: var(--muted);
+	font-size: 0.85rem;
+}
+
+.msg {
+	margin-top: 8px;
+	font-size: 0.92rem;
+}
+
+.msg.success {
+	color: var(--success);
+}
+
+.msg.error {
+	color: var(--danger);
+}
+
+.hidden {
+	display: none;
+}
+
+.footer {
+	text-align: center;
+	color: var(--muted);
+	padding: 16px 0 40px;
+}
+
+.pill {
+	background: #e6f0ff;
+	padding: 4px 8px;
+	border-radius: 999px;
+	font-size: 0.8rem;
+}
+</style>
+</head>
+<body>
+	<!-- NAVBAR -->
+
+	<nav>
+		<div class="brand">Train Admin Portal</div>
+		<div class="menu">
+			<a href="admin_UI_Task_3.html"> Home</a> <a
+				href="RegisterTrain_UI_Task_3.html"> Register a Train</a> <a
+				href="Profile_UI_Task_3.html"> Profile </a> <a
+				href="login_UI_Task_3.html"> Logout</a>
+		</div>
+	</nav>
+
+
+	<main>
+		<!-- HOME -->
+		<section id="home" class="section">
+			<h2>
+				Home <span class="pill">current</span>
+			</h2>
+			<h3>Aggregate Table Section</h3>
+			<div class="grid cols-2">
+				<!-- 1.1 Number of tickets booked per class -->
+				<div class="section">
+					<h3>1.1 Number of tickets booked per class</h3>
+					<table id="tableTicketsByClass">
+						<thead>
+							<tr>
+								<th>Class</th>
+								<th>Tickets Booked</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+
+				<!-- 1.2 Sales done per quarter -->
+				<div class="section">
+					<h3>1.2 Sales done per quarter</h3>
+					<table id="tableSalesByQuarter">
+						<thead>
+							<tr>
+								<th>Quarter</th>
+								<th>Sales (₹)</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- 2. Table section -->
+			<div class="section" style="margin-top: 12px;">
+				<h3>2. Table Section — Clients</h3>
+				<p class="helper">
+					Manage client records. Click <b>Delete</b> to remove a customer and
+					update aggregates.
+				</p>
+				<table id="tableClients">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Mobile</th>
+							<th>Number Of ticket Booked</th>
+							<th>Delete customer</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</section>
+
+
+
+
+
+
+
+
+		<div class="footer">© Train Admin Portal · Blue & White Theme</div>

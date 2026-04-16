@@ -1,0 +1,79 @@
+CREATE TABLE Customer (
+    user_id INT 
+        GENERATED ALWAYS AS IDENTITY (START WITH 10000, INCREMENT BY 1),
+    user_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(12) NOT NULL,
+    address VARCHAR(100),
+    contact_number CHAR(10) NOT NULL,
+    CONSTRAINT pk_customer PRIMARY KEY (user_id),
+    -- Basic length check for password (Derby supports LENGTH)
+    CONSTRAINT chk_password_len CHECK (LENGTH(password) BETWEEN 6 AND 12)
+    -- Note: Validating that contact_number contains only digits is better done in application code.
+    -- Derby's LIKE doesn't support regex character classes, so a robust digits-only CHECK isn't trivial.
+);
+
+
+// Train Table: 
+
+
+
+
+
+
+
+
+
+CREATE TABLE Train (
+    train_number INT NOT NULL,
+    train_name VARCHAR(100) NOT NULL,
+    origin_station VARCHAR(100) NOT NULL,
+    destination_station VARCHAR(100) NOT NULL,
+    departure_time TIME NOT NULL,
+    arrival_time TIME NOT NULL,
+    number_of_seats INT NOT NULL,
+    CONSTRAINT pk_train PRIMARY KEY (train_number)
+);
+
+
+
+// Booking Table :
+
+CREATE TABLE Booking (
+    booking_id BIGINT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    train_number INT NOT NULL,
+    booking_date DATE NOT NULL,
+    fare DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(20) NOT NULL
+);
+
+
+
+// Booking Seat Table:
+
+
+CREATE TABLE BookingSeat (
+    booking_id BIGINT NOT NULL,
+    seat_number INT NOT NULL,
+    CONSTRAINT pk_booking_seat PRIMARY KEY (booking_id, seat_number),
+    CONSTRAINT fk_bookingseat_booking
+        FOREIGN KEY (booking_id)
+        REFERENCES Booking(booking_id)
+        ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE Booking (
+    booking_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 100000, INCREMENT BY 1),
+    customer_id INT NOT NULL,
+    train_number INT NOT NULL,
+    booking_date DATE NOT NULL,
+    number_of_seat INT,
+    fare DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(20) NOT NULL
+);
+
+
+

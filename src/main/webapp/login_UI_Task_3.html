@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Train Admin | Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+:root {
+	--blue: #0D6EFD;
+	--blue-dark: #0b5ed7;
+	--bg: #f8fbff;
+	--text: #0a2540;
+	--white: #ffffff;
+	--border: #e6eef8;
+	--danger: #dc3545;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+		sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+}
+
+.card {
+	width: 100%;
+	max-width: 420px;
+	background: var(--white);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(13, 110, 253, 0.08);
+}
+
+.card-header {
+	background: var(--blue);
+	color: var(--white);
+	padding: 18px 22px;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+.card-body {
+	padding: 22px;
+}
+
+label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+}
+
+.btn {
+	width: 100%;
+	background: var(--blue);
+	color: var(--white);
+	border: none;
+	border-radius: 8px;
+	padding: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 16px;
+}
+
+.btn:hover {
+	background: var(--blue-dark);
+}
+</style>
+</head>
+
+<body>
+
+	<div class="card">
+		<div class="card-header">Customer Login</div>
+		<div class="card-body">
+
+			<!-- ✅ BACKEND-ALIGNED FORM -->
+			<form action="Servlet3" method="post">
+
+				<label for="username">Username</label> <input id="username"
+					name="username" type="text" required placeholder="Enter username">
+
+				<label for="password" style="margin-top: 12px;">Password</label> <input
+					id="password" name="password" type="password" required
+					placeholder="Enter password">
+
+				<button class="btn" type="submit">Login</button>
+
+			</form>
+
+		</div>
+	</div>
+
+	<div class="footer">© Train Ticket System</div>
+
+</body>
+</html>
+
+

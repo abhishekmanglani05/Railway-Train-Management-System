@@ -1,0 +1,210 @@
+/*-------------------------------- BACKGROUND PAGE ---------------------------------*/
+
+/* Responsive, always-cover background on the viewport */
+body {
+	margin: 0;
+	/* Use min-height instead of a hard 100vh */
+	min-height: 100vh;
+	/* On modern mobile browsers, use dynamic viewport units */
+	/* Fallback to 100vh remains in place via min-height */
+	height: 100svh; /* dynamic viewport height, adjusts for UI bars */
+	/* Background that always covers & recenters */
+	background-image: url("images/train.jpg");
+	background-size: cover; /* scales to fill without distortion */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed; /* keeps image tied to the viewport */
+	font-family: "Poppins", sans-serif;
+	animation: fadeIn 1s ease-in-out;
+}
+
+/* iOS Safari older versions fallback */
+@
+supports not (height: 100svh) {body { height:100vh;
+	
+}
+
+}
+@
+keyframes fadeIn {from { opacity:0;
+	
+}
+
+to {
+	opacity: 1;
+}
+
+}
+
+/* Center container */
+.login-container {
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(3px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	color: white;
+	font-size: 42px;
+	text-shadow: 2px 2px 10px black;
+	margin-bottom: 25px;
+}
+
+/*----------------------------- LOGIN & REGISTER BOX -----------------------------*/
+.login-box {
+	width: 350px;
+	max-width: 90vw;
+	background: #000; /* Solid black background */
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+	animation: glowBox 3s infinite alternate;
+}
+
+@
+keyframes glowBox {from { box-shadow:0010pxrgba(0, 255, 255, 0.3);
+	
+}
+
+to {
+	box-shadow: 0 0 22px rgba(0, 255, 255, 0.7);
+}
+
+}
+h2 {
+	color: white;
+	margin-bottom: 20px;
+}
+
+/*---------------------------------- INPUT + LABEL STYLE ------------------------------*/
+label {
+	margin-top: 10px;
+	margin-bottom: 4px;
+	color: white;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+input {
+	width: 92%;
+	padding: 12px;
+	border-radius: 8px;
+	border: 2px solid transparent;
+	background: rgba(255, 255, 255, 0.8);
+	font-size: 15px;
+	transition: 0.3s;
+	margin-bottom: 12px;
+}
+
+input:hover {
+	border-color: #00eaff;
+	box-shadow: 0 0 10px rgba(0, 234, 255, 0.7);
+}
+
+input:focus {
+	border-color: #00eaff;
+	background: white;
+	transform: scale(1.03);
+	outline: none;
+	box-shadow: 0 0 16px rgba(0, 234, 255, 1);
+}
+
+/*--------------------------------------- BUTTON ----------------------------------*/
+button {
+	width: 100%;
+	padding: 12px;
+	background-color: #009dff;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 17px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+button:hover {
+	background-color: #04c3ff;
+	box-shadow: 0 0 20px #00eaff;
+	transform: scale(1.05);
+}
+
+/*---------------------------------------- ERROR TEXT --------------------------------*/
+.error {
+	color: #ff3b3b; /* Bright red */
+	font-size: 14px;
+	font-weight: 700;
+	margin-top: 4px;
+	margin-bottom: 8px;
+	display: block;
+	position: relative;
+	z-index: 10;
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
+}
+
+/*---------------------------------------- REGISTER/LOGIN LINK ----------------------------*/
+.register-text {
+	text-align: center;
+	color: white;
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+.register-text a {
+	color: #00eaff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.register-text a:hover {
+	text-shadow: 0 0 12px #00eaff;
+}
+
+/*------------------------------------------- INFO ICON + TOOLTIP -------------------------*/
+.info-icon {
+	background: #00eaff;
+	color: black;
+	font-weight: bold;
+	width: 18px;
+	height: 18px;
+	min-width: 18px;
+	text-align: center;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 18px;
+	margin-left: 8px;
+	position: relative;
+}
+
+.info-icon:hover::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	left: 25px;
+	top: 0;
+	transform: translateY(-50%);
+	background: rgba(0, 0, 0, 0.85);
+	color: white;
+	padding: 8px 10px;
+	border-radius: 6px;
+	white-space: nowrap;
+	font-size: 12px;
+	box-shadow: 0 0 8px black;
+	z-index: 999;
+}
+
+/* Small screens tweaks */
+@media ( max-width : 420px) {
+	h1 {
+		font-size: 34px;
+	}
+	.login-box {
+		padding: 22px;
+	}
+}
