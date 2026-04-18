@@ -5,6 +5,7 @@
 	id="WebApp_ID" version="4.0">
 	<display-name>FinalTrainManagementSystem</display-name>
 	<welcome-file-list>
+		<welcome-file>index_UI_Task1.html</welcome-file>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.htm</welcome-file>
