@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Train Ticket System - Login</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #4e73df, #1cc88a);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .login-box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background: #4e73df;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background: #2e59d9;
+    }
+
+    .register-text {
+        text-align: center;
+        margin-top: 15px;
+        color: #555;
+    }
+
+    .register-text a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .register-text a:first-child {
+        color: #1cc88a;
+    }
+
+    .register-text a:last-child {
+        color: #e74a3b;
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Train Ticket System</h1>
+
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <form action="req1" method="get">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter Username">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password">
+
+                <input type="submit" value="Login">
+            </form>
+
+            <p class="register-text">
+                New user? <a href="register_UI_Task_1.html">Register here</a>
+            </p>
+
+            <p class="register-text">
+                Login as Admin - <a href="login_UI_Task_3.html">LOGIN</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
