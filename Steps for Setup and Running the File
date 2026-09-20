@@ -1,0 +1,9 @@
+Step 1. open project in eclipse and import project from existing maven project
+Step 2. Check whether you are having the postgres and derby jar if not download them
+Step 3. Go to Database connection and test by pinging.
+Step 4. Run SQL queries of table (if tables are not inserted)
+Step 5. Run the index_UI_Task_1.html (Run on Server)
+Step 6. if port is already in use (go to data source explorer -> Database Connection -> double click on new derby and change the port number)
+
+
+Set and your Project will run completely fine.
